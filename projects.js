@@ -76,6 +76,57 @@ window.PORTFOLIO_PROJECTS = [
     }
   },
   {
+    "id": "local-transcriber",
+    "visible": true,
+    "featured": false,
+    "wide": false,
+    "title": "Local Transcriber",
+    "type": {
+      "ja": "Windows desktop application",
+      "en": "Windows desktop application"
+    },
+    "description": {
+      "ja": "録音済みの音声・動画をローカルで文字起こしするWindows向けアプリ。セグメント単位の編集、選択セルのコピー、TXT・SRT・JSON・Word出力と、確認後の任意のAI整形・要約に対応します。",
+      "en": "A Windows desktop application for local transcription of recorded audio and video, with segment editing, selected-cell copying, TXT/SRT/JSON/Word export, and optional AI formatting and summarization after confirmation."
+    },
+    "technologies": [
+      "Python 3.14",
+      "PySide6",
+      "faster-whisper",
+      "CTranslate2",
+      "FFmpeg",
+      "OpenAI Responses API"
+    ],
+    "details": {
+      "ja": [
+        [
+          "設計",
+          "認識原文と編集文を分けて保持。音声認識は別プロセスで実行し、外部AIへのテキスト送信は確認後に限定。"
+        ],
+        [
+          "検証状況",
+          "Linux / Python 3.14で自動検証。Windowsの最終受け入れ、GPU、実API、認識精度・速度の比較は未完了。"
+        ]
+      ],
+      "en": [
+        [
+          "Design",
+          "Separate raw and edited text, recognition in a worker process, and explicit confirmation before text is sent to an external AI service."
+        ],
+        [
+          "Validation",
+          "Automated checks on Linux / Python 3.14. Final Windows acceptance, GPU, live API integration, and accuracy/speed comparisons remain unverified."
+        ]
+      ]
+    },
+    "webApp": null,
+    "github": "https://github.com/moriomics/moriomics.github.io/tree/main/tools/local-transcriber",
+    "note": {
+      "ja": "Windows向けMVP — ソース公開・環境構築が必要",
+      "en": "Windows MVP — source release; setup required"
+    }
+  },
+  {
     id: "image-resizer",
     visible: true,
     featured: false,
@@ -180,3 +231,4 @@ window.PORTFOLIO_PROJECTS = [
     note: { ja: "Jupyter Notebook — ブラウザデモなし", en: "Jupyter Notebook — no browser demo" }
   }
 ];
+

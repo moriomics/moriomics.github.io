@@ -1,0 +1,6 @@
+Place 64-bit Windows ffmpeg.exe and ffprobe.exe here before building.
+Binaries are not included in this source package.
+Use a trusted build linked from https://ffmpeg.org/download.html#build-windows
+Keep that exact build's license, notices and required corresponding-source information.
+If using a shared-library build, place the required DLLs on PATH or adapt the spec to bundle them.
+A static build is simpler to package; static does not automatically mean LGPL.

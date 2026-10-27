@@ -42,6 +42,7 @@ The current Tools configuration includes:
 - OpenAlex Literature Search
 - Molarity Calculator
 - PDF Toolkit
+- Local Transcriber — Windows desktop MVP, published under `tools/local-transcriber`
 - Image Resizer
 - Grayscale Trinarization Desktop App
 
@@ -74,3 +75,4 @@ This repository is published as the GitHub Pages user site:
 No open-source license is included.
 
 Source code is publicly available for portfolio and review purposes. No license for reuse, modification, or redistribution is granted.
+
