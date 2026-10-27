@@ -105,7 +105,7 @@ window.PORTFOLIO_PROJECTS = [
         ],
         [
           "検証状況",
-          "Linux / Python 3.14で自動検証。Windowsの最終受け入れ、GPU、実API、認識精度・速度の比較は未完了。"
+          "Windows実機・GPU文字起こし・OpenAI実APIとの連携を確認済み。Linux / Python 3.14で自動テスト41件が合格。"
         ]
       ],
       "en": [
@@ -115,7 +115,7 @@ window.PORTFOLIO_PROJECTS = [
         ],
         [
           "Validation",
-          "Automated checks on Linux / Python 3.14. Final Windows acceptance, GPU, live API integration, and accuracy/speed comparisons remain unverified."
+          "Maintainer-verified Windows operation, GPU transcription, and live OpenAI API integration. 41 automated tests passed on Linux / Python 3.14."
         ]
       ]
     },

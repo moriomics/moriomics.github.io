@@ -4,7 +4,7 @@ GitHub公開版では、リポジトリ内の `tools/local-transcriber` フォ�
 
 Windows 10 / 11（64bit）向けに作成したPythonソース一式です。PySide6の画面、faster-whisperによるローカル認識、編集・保存、任意のOpenAI Responses API連携を実装しています。
 
-**Windowsでビルド済みのexeは含まれていません。** 本パッケージは実機受け入れ前のMVPです。開発環境での検証結果と、Windowsで残っている確認は `docs/TEST_REPORT.md` に記載しています。日本語音声の認識精度は未計測です。
+**Windowsでビルド済みのexeは含まれていません。** Windows実機での動作、GPU文字起こし、OpenAI実API連携の検証は開発者により完了しています。検証記録は [VALIDATION.md](VALIDATION.md) を参照してください。CERなどの定量評価結果は未掲載です。
 
 ## 選択行コピー・高速化（0.2.0）
 
@@ -21,7 +21,7 @@ Windows 10 / 11（64bit）向けに作成したPythonソース一式です。PyS
 
 セグメントの保持は受信ごとに行い、GUIへの追加・進捗表示は200ミリ秒ごとにまとめます。認識原文やキャンセル時の部分結果を間引く処理ではありません。完了時には処理時間を表示し、プロジェクトにも保存します。この時間はハッシュ計算・前処理・モデル読み込み・認識を含み、ワーカー起動と結果保存は含みません。
 
-同じ音声・同じモデル・同じ装置でモードを比較してください。完了済みファイルを再認識する場合は、プロジェクトを保存してから一覧から削除し、元音声を追加し直せます。実音声での速度差とCERは未計測です。一定の高速化率は保証していません。
+同じ音声・同じモデル・同じ装置でモードを比較してください。完了済みファイルを再認識する場合は、プロジェクトを保存してから一覧から削除し、元音声を追加し直せます。実音声での速度差とCERの評価結果は未掲載です。一定の高速化率は保証していません。
 
 CLIでも `--mode fast` / `--mode standard` と `--cpu-threads 0` を指定できます。
 
@@ -37,12 +37,12 @@ CLIでも `--mode fast` / `--mode standard` と `--cpu-threads 0` を指定で�
 
 以前の版を使用した場合も、新しいZIPを別フォルダへ展開して `setup_windows.bat` を実行してください。仮想環境は `.venv314` に作成します。従来の `.venv` は変更しません。プロジェクト・モデル・設定は引き続き同じ `%LOCALAPPDATA%\LocalTranscriber` を参照します。
 
-Windows実機とexeの受け入れは未完了です。Python 3.14環境での自動検証状況は `docs/TEST_REPORT.md` に記載しています。
+Windows実機・GPU・実APIの検証は完了しています。Python 3.14環境での自動検証状況と併せて [VALIDATION.md](VALIDATION.md) に記載しています。
 
 ## 最初の起動
 
 1. ZIPを展開します。例: `C:\Apps\LocalTranscriber`。ZIP内から直接実行しないでください。
-2. Python 3.14（64bit、Python Launcherを含む）をインストールします。通常版（GILあり）を使用してください。free-threaded版（3.14t）は対象外です。Windows実機での最終動作確認は別途必要です。
+2. Python 3.14（64bit、Python Launcherを含む）をインストールします。通常版（GILあり）を使用してください。free-threaded版（3.14t）は対象外です。
 3. `setup_windows.bat` をダブルクリックします。初回はインターネット接続が必要です。
 4. [FFmpeg公式ダウンロード案内](https://ffmpeg.org/download.html#build-windows)にあるWindows版から `ffmpeg.exe` と `ffprobe.exe` を入手し、両方を `vendor\ffmpeg` に配置します。実行に別DLLを要するビルドを使用する場合はそのDLLも利用可能にしてください。本パッケージにFFmpegバイナリは含みません。
 5. `run_windows.bat` をダブルクリックします。
@@ -93,7 +93,7 @@ Windows実機とexeの受け入れは未完了です。Python 3.14環境での�
 
 CPUはint8、NVIDIA CUDAのGPUはfloat16です。GPUが未検出の場合、CUDA関連ライブラリが使えない場合、メモリが不足する場合などは理由・確認箇所を表示し、CPUへの変更を案内します。自動でCPUへ切り替えて再実行することはありません。
 
-GPUに必要なNVIDIAドライバー・CUDA/cuDNNのDLLは本パッケージに含みません。使用するCTranslate2版に適合する実行環境を、[faster-whisper公式の要件](https://github.com/SYSTRAN/faster-whisper#gpu)と[CTranslate2公式インストール案内](https://opennmt.net/CTranslate2/installation.html)で確認してください。Windows資格情報、GPU、DLLの実機検証は未実施です。
+GPUに必要なNVIDIAドライバー・CUDA/cuDNNのDLLは本パッケージに含みません。使用するCTranslate2版に適合する実行環境を、[faster-whisper公式の要件](https://github.com/SYSTRAN/faster-whisper#gpu)と[CTranslate2公式インストール案内](https://opennmt.net/CTranslate2/installation.html)で確認してください。Windows実機とGPUでの動作は確認済みです。
 
 モデル取得は独立した明示操作です。認識コードはローカルディレクトリと `local_files_only=True` を指定し、HFのオフライン設定も有効にします。モデルの導入完了を確認するマーカーがない場合は認識を開始しません。中断したモデル取得のキャッシュは、再取得に使用するため残します。一方、認識用の一時WAVはジョブ終了時に削除します。
 

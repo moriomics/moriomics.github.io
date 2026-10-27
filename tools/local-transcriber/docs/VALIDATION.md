@@ -25,18 +25,21 @@ The suite covers:
 
 The Japanese interface was exercised in an offscreen Qt environment. Windows fonts, display scaling, and native dialogs were not visually accepted in this environment.
 
-## Checks not completed
+## Maintainer-confirmed manual verification
 
-- Final Windows 10 / 11 installation and end-to-end acceptance.
-- Windows Credential Manager operations and Windows process-tree cancellation.
-- A Windows PyInstaller build and execution on a clean PC without Python.
-- Live OpenAI API behavior or model availability for an individual account.
-- NVIDIA CUDA/cuDNN inference or GPU memory limits.
-- Real Japanese audio accuracy, CER, timing alignment, or measured fast-versus-standard speedup.
-- Physical network disconnection while running an installed speech model.
-- Long recordings, low disk space, and all supported media codecs in actual user files.
+The project maintainer confirmed completion of the following checks on 2026-10-27:
 
-The [Windows acceptance checklist](ACCEPTANCE_TESTS.md) documents the outstanding manual procedure. Automated success is not a claim that all of those Windows checks passed.
+- Operation on a Windows PC.
+- GPU transcription.
+- Live OpenAI API integration.
+
+These manual checks were performed separately from the Linux automated suite described above. The earlier statement that Windows, GPU, and live API verification were incomplete is superseded by this report.
+
+The [acceptance checklist](ACCEPTANCE_TESTS.md) remains available as a reusable testing template. Its blank environment fields and unchecked boxes are not the current validation status.
+
+## Evaluation records
+
+Measured CER and fast-versus-standard speed comparisons are not published. No numerical accuracy or speedup claim is made.
 
 ## Publication checks
 
