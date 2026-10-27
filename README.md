@@ -42,7 +42,7 @@ The current Tools configuration includes:
 - OpenAlex Literature Search
 - Molarity Calculator
 - PDF Toolkit
-- Local Transcriber — Windows desktop MVP, published under `tools/local-transcriber`
+- [Local Transcriber](https://github.com/moriomics/local-transcriber) — Windows desktop transcription app
 - Image Resizer
 - Grayscale Trinarization Desktop App
 

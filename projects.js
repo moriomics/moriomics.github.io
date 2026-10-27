@@ -120,7 +120,7 @@ window.PORTFOLIO_PROJECTS = [
       ]
     },
     "webApp": null,
-    "github": "https://github.com/moriomics/moriomics.github.io/tree/main/tools/local-transcriber",
+    "github": "https://github.com/moriomics/local-transcriber",
     "note": {
       "ja": "Windows向けMVP — ソース公開・環境構築が必要",
       "en": "Windows MVP — source release; setup required"
